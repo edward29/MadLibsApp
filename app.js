@@ -16,8 +16,10 @@ let questionsArray = [
     `${solicitation} your favorite place`
 ]
 
-let userInputs = [""];
-
+let userInputs = [];
+for (let i = numbersOfQuestion; i > 0; i--) {
+    
+}
 
 let theStory = `My name is ${userInputs[0]}, I am ${userInputs[1]} years old and I'm from ${userInputs[2]} city. I studied in ${userInputs[3]}. I am a owner of ${userInputs[4]} cat(s) and ${userInputs[5]} dog(s), cat(s) and dog(s) are ${userInputs[6]} to other people. My favorite color is ${userInputs[7]} and my favorite desert is ${userInputs[8]} and favorite place is ${userInputs[9]} thats all thank you.`;
 
