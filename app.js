@@ -1,33 +1,60 @@
 let numbersOfQuestion = 10;
 let qCounter = 0;
+let theStory = '';
 
-
-let solicitation = `Please enter`;
+let sol = `Please enter`;
 let questionsArray = [
-    `${solicitation} your name `,
-    `${solicitation} your age `,
-    `${solicitation} your city do you live `,
-    `${solicitation} your school where you are studying or where you graduated `,
-    `${solicitation} a number of your cat(if you have) `,
-    `${solicitation} a number of your dog(if you have) `,
-    `${solicitation} a behavior of your pet(s) (Friendly or Not Friendly) `,
-    `${solicitation} your favorite color `,
-    `${solicitation} your favorite desert `,
-    `${solicitation} your favorite place `
+    `${sol} your name `,
+    `${sol} your age `,
+    `${sol} place that you live now `,
+    `${sol} your school where you are studying or where you graduated `,
+    `${sol} a number of your cat(if you have) `,
+    `${sol} a number of your dog(if you have) `,
+    `${sol} a behavior of your pet(s) (Friendly or Not Friendly) `,
+    `${sol} your favorite color `,
+    `${sol} your favorite desert `,
+    `${sol} your favorite place `
 ]
 
-let userInputs = [];
-for (let i = numbersOfQuestion; i > 0; i--) {
-    console.log(questionsArray[qCounter] + `... (${numbersOfQuestion} questions left)`);
-    userInputs.push(prompt(questionsArray[qCounter] + `... (${numbersOfQuestion} questions left)`))
 
-    console.log(userInputs);
-    qCounter++;
-    numbersOfQuestion--;
-}
 
-let theStory = `<h2>My name is ${userInputs[0]}, I am ${userInputs[1]} years old and I'm from ${userInputs[2]} city. I studied in ${userInputs[3]}. I am a owner of ${userInputs[4]} cat(s) and ${userInputs[5]} dog(s), cat(s) and dog(s) are ${userInputs[6]} to other people. My favorite color is ${userInputs[7]} and my favorite desert is ${userInputs[8]} and favorite place is ${userInputs[9]} thats all thank you.</h2>`;
+let inputOfUser = [];
+const res = document.querySelector(".res");
+const btn = document.querySelector("#btn");
+btn.addEventListener('click', () => {
+    if (res.innerHTML === "") {
+        for (let i = numbersOfQuestion; i > 0; i--) {
+            console.log(questionsArray[qCounter] + `... (${numbersOfQuestion} questions left)`);
+    
+            inputOfUser.push(prompt(questionsArray[qCounter] + `... (${numbersOfQuestion} questions left)`))
 
-console.log(theStory);
+            console.log(inputOfUser);
+            qCounter++;
+                numbersOfQuestion--;
+        }
+        
+        theStory += `<h2>My name is <span>${inputOfUser[0]}</span>, I am ${inputOfUser[1]} years old and I'm from <span>${inputOfUser[2]}</span>. I studied in <span>${inputOfUser[3]}</span>. I am a owner of <span>${inputOfUser[4]}</span> cat(s) and <span>${inputOfUser[5]}</span> dog(s), cat(s) and dog(s) are <span>${inputOfUser[6]}</span> to other people. My favorite color is <span>${inputOfUser[7]}</span> and my favorite desert is <span>${inputOfUser[8]}</span> and favorite place is <span>${inputOfUser[9]}</span>, thats all thank you.</h2>`;
+    
+        console.log(theStory);
+        res.innerHTML = theStory;
+        btn.innerHTML = "Reload";
+    } else {
+        location.reload();
+    }
+});
 
-alert("All done thank you!");
+
+
+// lets debug
+/*let inputOfUser = [
+    "Edward",
+    "23",
+    "Lucena City",
+    "College University",
+    "2",
+    "1",
+    "Friendly",
+    "Black",
+    "Ice Cream",
+    "park"
+];*/
